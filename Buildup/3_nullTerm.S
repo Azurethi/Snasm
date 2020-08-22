@@ -5,7 +5,7 @@ main:
   
     ldr r1, =str  	// String pointer
 
-    b echo
+    bl echo
     b exit
 
 echo:               //Expects R1 = string ptr
@@ -20,7 +20,7 @@ write:  			// Expect R2 = StrLen, R1 = String ptr
     mov r7, #4      // Select write syscall
     mov r0, #1      // Select STD_OUT file descriptor
     swi 0           // Call kernel
-    bc  lr          // Return to addr stored by BL
+    bx  lr          // Return to addr stored by BL
 
 exit:
     mov r7, #1      // select exit Syscall

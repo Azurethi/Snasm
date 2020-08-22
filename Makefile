@@ -21,7 +21,7 @@
 build/0_test: build/0_test.o
 	gcc -o $@ $<
 
-build/0_test.o : buildup/test.S
+build/0_test.o : Buildup/0_test.S
 	as -o $@ $<
 
 clean:

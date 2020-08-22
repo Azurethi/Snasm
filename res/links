@@ -1,11 +1,6 @@
-Jdoodle assembler:
-    https://www.jdoodle.com/compile-assembler-nasm-online/
+Cheatsheet src:
+    https://azeria-labs.com/assembly-basics-cheatsheet/
 
-NASM spec:
-    https://www.nasm.us/xdoc/2.15.03/html/nasmdoc3.html
+Inital arm32 tutorial:
+    https://thinkingeek.com/2013/01/09/arm-assembler-raspberry-pi-chapter-1/
 
-Code tbl:
-    http://www.jegerlehner.ch/intel/IntelCodeTable.pdf
-
-calls
-    https://linux.die.net/man/2/

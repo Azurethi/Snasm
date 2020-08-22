@@ -4,3 +4,13 @@ Cheatsheet src:
 Inital arm32 tutorial:
     https://thinkingeek.com/2013/01/09/arm-assembler-raspberry-pi-chapter-1/
 
+Hello world explanation / tutorial:
+    https://goodmath.scientopia.org/2014/02/11/hello-world-in-arm-assembly-language/
+
+
+arm docs
+    https://developer.arm.com/documentation/dui0068/b/writing-arm-and-thumb-assembly-language/introduction
+
+some guys notes
+    First chapter:  http://peter-cockerell.net/aalp/html/ch-1.html
+    Malloc (part way down page): http://peter-cockerell.net/aalp/html/ch-4.html

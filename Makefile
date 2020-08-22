@@ -18,6 +18,11 @@
 #clean:
 #	rm -vf first *.o
 
-0_test:
-	as -o 0_test.o 0_test.s
-	gcc -o 0_test 0_test.0
+build/0_test: build/0_test.o
+	gcc -o $@ $<
+
+build/0_test.o : buildup/test.S
+	as -o $@ $<
+
+clean:
+	rm -vf build/*

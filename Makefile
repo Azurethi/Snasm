@@ -31,4 +31,4 @@ $(BUILD):
 	mkdir $(BUILD)
 
 clean:
-	rm -vf build/*
+	rm -vrf $(BUILD)

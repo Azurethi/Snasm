@@ -6,13 +6,13 @@
 # $^ is a macro that refers to all dependencies
 # $+ is like $^ but exactly won't ignore dublicates
 
-SRC     := ./Buildup
-BUILD   := ./build
-OBJ		:= $(BUILD)/obj
-BIN		:= $(BUILD)/bin
-SRCS    := $(wildcard $(SRC)/*.S)
-OBJS    := $(patsubst $(SRC)/%.S,$(OBJ)/%.o,$(SRCS))
-EXES    := $(patsubst $(SRC)/%.S,$(BIN)/%,$(SRCS))
+SRC   := ./Buildup
+BUILD := ./build
+OBJ   := $(BUILD)/obj
+BIN   := $(BUILD)/bin
+SRCS  := $(wildcard $(SRC)/*.S)
+OBJS  := $(patsubst $(SRC)/%.S,$(OBJ)/%.o,$(SRCS))
+EXES  := $(patsubst $(SRC)/%.S,$(BIN)/%,$(SRCS))
 
 .PHONY: all clean
 

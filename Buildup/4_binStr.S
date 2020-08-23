@@ -48,5 +48,5 @@ exit:
 
 
 .data
-    str: .ascii "Hello World\nAttempting to convert register to binary string\n\n\0"
+    str: .ascii "Hello World\nConverting register to binary string\n\n\0"
     template: .ascii "################################\n\n\0"

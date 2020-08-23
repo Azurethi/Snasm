@@ -24,5 +24,11 @@ build/0_test: build/0_test.o
 build/0_test.o : Buildup/0_test.S
 	as -o $@ $<
 
+build/4_binStr: build/4_binStr.o
+	gcc -o $@ $<
+
+build/4_binStr.o : Buildup/4_binStr.S
+	as -o $@ $<
+
 clean:
 	rm -vf build/*

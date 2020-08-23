@@ -18,11 +18,11 @@ binstr:                 //expects R0 = number
         strb r3, [r1,r2]
         add r1, r1, #1      // inc counter
         cmp r1, #32
-        jne bsloop
+        bne bsloop
     ldr r1, =template
-    push lr
+    push {lr}
     bl echo
-    pop lr
+    pop {lr}
     bx lr
 
 echo:               //Expects R1 = string ptr

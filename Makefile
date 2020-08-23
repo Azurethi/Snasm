@@ -26,7 +26,7 @@ $(OBJ)/%.o: $(SRC)/%.S | $(OBJ)
 
 $(OBJ) $(BIN):
 	mkdir $(BUILD)
-    mkdir $@
+	mkdir $@
 
 clean:
 	rm -vf build/*

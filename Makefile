@@ -6,31 +6,27 @@
 # $^ is a macro that refers to all dependencies
 # $+ is like $^ but exactly won't ignore dublicates
 
+SRC     := ./Buildup
+BUILD   := ./build
+OBJ		:= $(BUILD)/obj
+BIN		:= $(BUILD)/bin
+SRCS    := $(wildcard $(SRC)/*.S)
+OBJS    := $(patsubst $(SRC)/%.S,$(OBJ)/%.o,$(SRCS))
+EXES    := $(patsubst $(SRC)/%.S,$(BIN)/%,$(SRCS))
 
-#all: first
-#
-#first: first.o
-#	gcc -o $@ $+
-#
-#first.o : first.s
-#	as -o $@ $<
-#
-#clean:
-#	rm -vf first *.o
+.PHONY: all clean
 
-all: build/0_test build/4_binStr
+all: $(EXES)
 
-build/0_test: build/0_test.o
+$(BIN)/%: $(OJB)/%.o | $(BIN)
 	gcc -o $@ $<
 
-build/0_test.o : Buildup/0_test.S
+$(OBJ)/%.o: $(SRC)/%.S | $(OBJ)
 	as -o $@ $<
 
-build/4_binStr: build/4_binStr.o
-	gcc -o $@ $<
-
-build/4_binStr.o : Buildup/4_binStr.S
-	as -o $@ $<
+$(OBJ) $(BIN):					# Dirs need to be made
+	mkdir $(BUILD)
+    mkdir $@
 
 clean:
 	rm -vf build/*

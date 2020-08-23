@@ -6,6 +6,9 @@ main:
     ldr r1, =str  	// String pointer
     bl echo
 
+    mov r0, #1234
+    bl binstr
+
     b exit
 
 binstr:                 //expects R0 = number

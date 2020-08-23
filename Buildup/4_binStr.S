@@ -15,12 +15,12 @@ binstr:                 //expects R0 = number
     mov r2, #0          //Counter
     ldr r1, =template
     bsloop:
-        mov r0, r0, LSL #1  // Shift r0 left 1
+        movs r0, r0, LSL #1  // Shift r0 left 1
         movcc r3, #48       // if carry clear, r3="0"
         movcs r3, #49       // if carry set, r3="1"
         strb r3, [r1,r2]
         add r2, r2, #1      // inc counter
-        cmp r2, #30
+        cmp r2, #32
         bne bsloop
 
     push {lr}

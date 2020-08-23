@@ -18,7 +18,7 @@ EXES  := $(patsubst $(SRC)/%.S,$(BIN)/%,$(SRCS))
 
 all: $(EXES)
 
-$(BIN)/%: $(OJB)/%.o | $(BIN)
+$(BIN)/%: $(OBJ)/%.o | $(BIN)
 	gcc -o $@ $<
 
 $(OBJ)/%.o: $(SRC)/%.S | $(OBJ)

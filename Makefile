@@ -24,7 +24,7 @@ $(BIN)/%: $(OJB)/%.o | $(BIN)
 $(OBJ)/%.o: $(SRC)/%.S | $(OBJ)
 	as -o $@ $<
 
-$(OBJ) $(BIN):					# Dirs need to be made
+$(OBJ) $(BIN):
 	mkdir $(BUILD)
     mkdir $@
 

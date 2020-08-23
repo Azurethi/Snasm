@@ -46,4 +46,4 @@ exit:
 
 .data
     str: .ascii "Hello World\nAttempting to convert register to binary string\n\n\0"
-    emplate: .ascii "################################\0"
+    template: .ascii "################################\0"

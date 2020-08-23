@@ -18,6 +18,8 @@
 #clean:
 #	rm -vf first *.o
 
+all: build/0_test build/4_binStr
+
 build/0_test: build/0_test.o
 	gcc -o $@ $<
 

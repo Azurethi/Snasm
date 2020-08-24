@@ -22,7 +22,7 @@ main:
     b exit
 
 debug:
-    push {lr,r0-r10}
+    push {r0-r10,lr}
     push {r4-r6}
     mov r4, r1
     mov r5, r2
@@ -76,7 +76,7 @@ debug:
     ldr r1, =debug_template
     bl echo
 
-    pop {lr,r0-r10}
+    pop {r0-r10,lr}
     bx lr
 
 binstr:                 //expects R0 = number

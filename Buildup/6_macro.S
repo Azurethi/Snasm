@@ -1,21 +1,6 @@
-.macro setRegs from, to
-    mov r\from, #\from
-    .if \to-\from
-        setRegs "(\from+1)",\to
-    .endif
-.endm
-
 .macro callBinstr reg
     ldr r1, =debug_template_r\reg
     bl binstr
-.endm
-
-.macro callBinstrMult from, to
-    mov r0, r\from
-    callBinstr \from
-    .if \to-\from
-        callBinstrMult "(\from+1)",\to
-    .endif
 .endm
 
 .global main
@@ -24,7 +9,12 @@ main:
     ldr r1, =str  	// String pointer
     bl echo
 
-    setRegs 0, 10
+    .set i, 0
+    .rept 10
+        mov r%i, #%i
+        .set i, i+1
+    .endr
+
     bl debug
 
     b exit
@@ -36,6 +26,7 @@ debug:
     mov r5, r2
     mov r6, r3
 
+
     callBinstr 0
     mov r0, r4
     callBinstr 1
@@ -44,7 +35,13 @@ debug:
     mov r0, r6
     callBinstr 3
     pop {r4-r6}
-    callBinstrMult 4, 10
+
+    .set i, 4
+    .rept 7
+        mov r0, r%i
+        callBinstr %i
+        .set i, i+1
+    .endr
 
     ldr r1, =debug_template
     bl echo

@@ -103,5 +103,5 @@ exit:
     debug_template_r7:  .ascii "################################\nR8 : "
     debug_template_r8:  .ascii "################################\nR9 : "
     debug_template_r9:  .ascii "################################\nR10: "
-    debug_template_r10: .ascii "################################\n\0"
+    debug_template_r10: .asciz "################################\n"
     

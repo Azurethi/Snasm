@@ -17,7 +17,7 @@ main:
     mov r8, #8
     mov r9, #9
     mov r10, #10
-    call debug
+    bl debug
 
 
     b exit
@@ -31,52 +31,52 @@ debug:
     mov r6, r3
 
     ldr r1, =debug_template_r0
-    call binstr
+    bl binstr
 
     mov r0, r4
     ldr r1, =debug_template_r1
-    call binstr
+    bl binstr
 
     mov r0, r5
     ldr r1, =debug_template_r2
-    call binstr
+    bl binstr
 
     mov r0, r6
     ldr r1, =debug_template_r3
-    call binstr
+    bl binstr
 
     pop {r4-r6}
 
     mov r0, r4
     ldr r1, =debug_template_r4
-    call binstr
+    bl binstr
 
     mov r0, r5
     ldr r1, =debug_template_r5
-    call binstr
+    bl binstr
 
     mov r0, r6
     ldr r1, =debug_template_r6
-    call binstr
+    bl binstr
 
     mov r0, r7
     ldr r1, =debug_template_r7
-    call binstr
+    bl binstr
 
     mov r0, r8
     ldr r1, =debug_template_r8
-    call binstr
+    bl binstr
 
     mov r0, r9
     ldr r1, =debug_template_r9
-    call binstr
+    bl binstr
 
     mov r0, r10
     ldr r1, =debug_template_r10
-    call binstr
+    bl binstr
 
-    mov r1, =debug_template
-    call echo
+    ldr r1, =debug_template
+    bl echo
 
     pop {r0-r10}
     bx lr

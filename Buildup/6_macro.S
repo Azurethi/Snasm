@@ -3,6 +3,15 @@
     bl binstr
 .endm
 
+.macro setReg i
+    mov r\i, #\i
+.endm
+
+.macro callBinstrR reg
+    mov r0, r\reg
+    callBinstr \reg
+.endm
+
 .global main
 main:
   
@@ -11,7 +20,7 @@ main:
 
     .set i, 0
     .rept 10
-        mov r%i, #%i
+        setReg %i
         .set i, i+1
     .endr
 
@@ -38,8 +47,7 @@ debug:
 
     .set i, 4
     .rept 7
-        mov r0, r%i
-        callBinstr %i
+        callBinstrR %i
         .set i, i+1
     .endr
 

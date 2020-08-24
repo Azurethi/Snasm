@@ -1,3 +1,4 @@
+.altmacro
 .macro callBinstr reg
     ldr r1, =debug_template_r\reg
     bl binstr

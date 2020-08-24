@@ -19,12 +19,10 @@ main:
     mov r10, #10
     bl debug
 
-
     b exit
 
-
 debug:
-    push {r0-r10}
+    push {lr,r0-r10}
     push {r4-r6}
     mov r4, r1
     mov r5, r2
@@ -78,7 +76,7 @@ debug:
     ldr r1, =debug_template
     bl echo
 
-    pop {r0-r10}
+    pop {lr,r0-r10}
     bx lr
 
 binstr:                 //expects R0 = number
@@ -114,8 +112,8 @@ exit:
 
 
 .data
-    str: .ascii "Hello World\nConverting register to binary string\n\n\0"
-    debug_template:     .ascii "\n#REG_DEBUG:\nR0: "
+    str: .ascii "Hello World\nConverting registers to binary strings\n\0"
+    debug_template:     .ascii "\n#REG_DEBUG:\nR0 : "
     debug_template_r0:  .ascii "################################\nR1 : "
     debug_template_r1:  .ascii "################################\nR2 : "
     debug_template_r2:  .ascii "################################\nR3 : "

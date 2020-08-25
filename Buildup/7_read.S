@@ -25,7 +25,7 @@ main:
 
     bl read
 
-    ldr r1, =readBuf
+    ldr r1, =readTemplate
     bl echo
 
     b exit
@@ -115,7 +115,7 @@ exit:
 
 
 .data
-    str: .asciz "Sleep before read."
+    str: .asciz "Sleep before read.\n"
     debug_template:     .ascii "\n#REG_DEBUG:\nR0 : "
     debug_template_r0:  .ascii "################################\nR1 : "
     debug_template_r1:  .ascii "################################\nR2 : "
@@ -129,7 +129,8 @@ exit:
     debug_template_r9:  .ascii "################################\nR10: "
     debug_template_r10: .asciz "################################\n"
 
-    readBuf: .asciz "##########"
+    readTemplate: .ascii "\n Read: "
+    readBuf: .asciz "##########\n"
 
     time:
     time_s:     .long 1

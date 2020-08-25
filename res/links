@@ -1,11 +1,33 @@
-Jdoodle assembler:
-    https://www.jdoodle.com/compile-assembler-nasm-online/
+Cheatsheet src:
+    https://azeria-labs.com/assembly-basics-cheatsheet/
 
-NASM spec:
-    https://www.nasm.us/xdoc/2.15.03/html/nasmdoc3.html
+Inital arm32 tutorial:
+    https://thinkingeek.com/2013/01/09/arm-assembler-raspberry-pi-chapter-1/
 
-Code tbl:
-    http://www.jegerlehner.ch/intel/IntelCodeTable.pdf
+Hello world explanation / tutorial:
+    https://goodmath.scientopia.org/2014/02/11/hello-world-in-arm-assembly-language/
 
-calls
-    https://linux.die.net/man/2/
+
+arm docs
+    https://developer.arm.com/documentation/dui0068/b/writing-arm-and-thumb-assembly-language/introduction
+
+some guys notes
+    First chapter:  http://peter-cockerell.net/aalp/html/ch-1.html
+    Malloc (part way down page): http://peter-cockerell.net/aalp/html/ch-4.html
+
+
+So the term is normally cooked (canoical w/ echoing), I need raw (non-cano & no echo).
+    In more plain english: I need the term to send me individual chars as they come in, and not print them itself.
+
+    - example written in C, but uses lib function (termios > cfmakeraw): 
+        https://stackoverflow.com/questions/448944/c-non-blocking-keyboard-input/448982#448982
+    - translated from lib functions to ioctl syscalls (still in C):
+        https://stackoverflow.com/questions/27365528/how-do-i-wait-for-a-keystroke-interrupt-with-a-syscall-on-linux/30607551
+
+    I need to go find out what all of the termios consts are in numbers
+    then make two termios, one to hold the original settings, one to copy to & modify
+    then apply the modified one for the game to work
+    then remember to reset to the originals before exiting
+
+    https://linux.die.net/man/2/ioctl
+    https://linux.die.net/man/3/termios

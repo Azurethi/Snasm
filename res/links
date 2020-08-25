@@ -14,3 +14,20 @@ arm docs
 some guys notes
     First chapter:  http://peter-cockerell.net/aalp/html/ch-1.html
     Malloc (part way down page): http://peter-cockerell.net/aalp/html/ch-4.html
+
+
+So the term is normally cooked (canoical w/ echoing), I need raw (non-cano & no echo).
+    In more plain english: I need the term to send me individual chars as they come in, and not print them itself.
+
+    - example written in C, but uses lib function (termios > cfmakeraw): 
+        https://stackoverflow.com/questions/448944/c-non-blocking-keyboard-input/448982#448982
+    - translated from lib functions to ioctl syscalls (still in C):
+        https://stackoverflow.com/questions/27365528/how-do-i-wait-for-a-keystroke-interrupt-with-a-syscall-on-linux/30607551
+
+    I need to go find out what all of the termios consts are in numbers
+    then make two termios, one to hold the original settings, one to copy to & modify
+    then apply the modified one for the game to work
+    then remember to reset to the originals before exiting
+
+    https://linux.die.net/man/2/ioctl
+    https://linux.die.net/man/3/termios

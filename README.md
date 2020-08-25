@@ -2,7 +2,7 @@
 
 ## The classic snake game!
 ### But text based
-#### and written in x86 assembly
+#### and written in ~~x86~~ arm assembly
 ##### because I enjoy pain
 
 <hr>

@@ -105,7 +105,7 @@ read:
 sleep:
     mov r7, #162    // nanosleep syscall
     ldr r0, =time   // time struct ptr
-    mov r1, 0       // unused arg
+    mov r1, #0      // unused arg
     swi 0           // call kernel
     bx  lr          // return
 

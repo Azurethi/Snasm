@@ -92,7 +92,7 @@ unblockRead:
     mov r1, #4      // F_setfl sub-funct
     mov r2, #2048   // flags: O_RDONLY|O_NONBLOCK
     swi 0           // call kernel
-    bx ldrb         // return
+    bx  lr          // return
 
 read:
     mov r7, #3      // read Syscall

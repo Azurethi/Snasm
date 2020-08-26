@@ -22,6 +22,12 @@
         ldr r1, =t_new_lflag
         ldr r0, [r1]
         bl binstr
+        ldr r1, =t_new_c_line
+        ldr r0, [r1]
+        bl binstr
+        ldr r1, =t_new_c_ccarr
+        ldr r0, [r1]
+        bl binstr
 
         b exit
 

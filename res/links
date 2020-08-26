@@ -16,6 +16,10 @@ some guys notes
     Malloc (part way down page): http://peter-cockerell.net/aalp/html/ch-4.html
 
 
+Searchable table for syscall numbers:
+    https://filippo.io/linux-syscall-table/
+
+
 So the term is normally cooked (canoical w/ echoing), I need raw (non-cano & no echo).
     In more plain english: I need the term to send me individual chars as they come in, and not print them itself.
 
@@ -31,3 +35,33 @@ So the term is normally cooked (canoical w/ echoing), I need raw (non-cano & no 
 
     https://linux.die.net/man/2/ioctl
     https://linux.die.net/man/3/termios
+
+
+    So I need to do this:
+
+    struct ktermios {
+        tcflag_t c_iflag;
+        tcflag_t c_oflag;
+        tcflag_t c_cflag;
+        tcflag_t c_lflag;
+        cc_t c_line;
+        cc_t c_cc[19];
+    };
+
+    struct ktermios orig, new;
+    ioctl(0, TCGETS, &orig);
+    ioctl(0, TCGETS, &new);   // or more simply  new = orig;
+
+    // from cfmakeraw documentation
+    new.c_iflag &= ~(IGNBRK | BRKINT | PARMRK | ISTRIP | INLCR | IGNCR | ICRNL | IXON);
+    new.c_oflag &= ~OPOST;
+    new.c_lflag &= ~(ECHO | ECHONL | ICANON | ISIG | IEXTEN);
+    new.c_cflag &= ~(CSIZE | PARENB);
+    new.c_cflag |= CS8;
+
+    ioctl(0, TCSETS, &new);
+        
+    // Then game goes here
+
+    // Then on exit
+    ioctl(0, TCSETS, &orig); //Reset term to old settings

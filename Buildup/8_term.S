@@ -5,16 +5,21 @@
         
         ldr r1, =str
         bl echo
-    
-        ldr r1, =t_new_iflag
-        ldr r0, [r1]
-        bl binstr
 
         mov r1, #21505  //TCGETS
         ldr r2, =t_new_iflag
         bl ioctl
 
         ldr r1, =t_new_iflag
+        ldr r0, [r1]
+        bl binstr
+        ldr r1, =t_new_oflag
+        ldr r0, [r1]
+        bl binstr
+        ldr r1, =t_new_cflag
+        ldr r0, [r1]
+        bl binstr
+        ldr r1, =t_new_lflag
         ldr r0, [r1]
         bl binstr
 
@@ -77,5 +82,5 @@
 
 .data
 
-    str:        .asciz "Trying to get term flags..."
+    str:        .asciz "Trying to get term flags... [i|o|c|l]flag:\n"
     template:   .asciz "################################\n"

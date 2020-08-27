@@ -15,9 +15,28 @@
         ldr r2, =t_new_iflag
         bl ioctl
 
-        ldr r0, =t_new_iflag
-        ldr r1, [r0]
-        bic r1, r1, number
+        ldr r1, =t_new_iflag
+        ldr r0, [r1]
+        bl binstr
+        ldr r1, =t_new_oflag
+        ldr r0, [r1]
+        bl binstr
+        ldr r1, =t_new_cflag
+        ldr r0, [r1]
+        bl binstr
+        ldr r1, =t_new_lflag
+        ldr r0, [r1]
+        bl binstr
+        ldr r1, =t_new_c_line
+        ldr r0, [r1]
+        bl binstr
+        ldr r1, =t_new_c_ccarr
+        ldr r0, [r1]
+        bl binstr
+
+        //ldr r0, =t_new_iflag
+        //ldr r1, [r0]
+        //bic r1, r1, number
 
         b exit
 

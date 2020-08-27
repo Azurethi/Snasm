@@ -6,15 +6,18 @@
         ldr r1, =str
         bl echo
 
-        mov r1, #21505  //TCGETS
-        ldr r2, =t_orig
-        bl ioctl
+        //mov r1, #21505  //TCGETS
+        //ldr r2, =t_orig
+        //bl ioctl
         
         //Should replace second syscall with memcpy
         mov r1, #21505  //TCGETS
         ldr r2, =t_new_iflag
         bl ioctl
 
+        ldr r1, =str
+        bl echo
+        
         ldr r1, =t_new_iflag
         ldr r0, [r1]
         bl binstr

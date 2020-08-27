@@ -15,9 +15,8 @@ some guys notes
     First chapter:  http://peter-cockerell.net/aalp/html/ch-1.html
     Malloc (part way down page): http://peter-cockerell.net/aalp/html/ch-4.html
 
-
-Searchable table for syscall numbers:
-    https://filippo.io/linux-syscall-table/
+Syscall numbers:
+    https://chromium.googlesource.com/chromiumos/docs/+/master/constants/syscalls.md#arm-32_bit_EABI
 
 
 So the term is normally cooked (canoical w/ echoing), I need raw (non-cano & no echo).

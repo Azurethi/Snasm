@@ -7,33 +7,23 @@
         bl echo
 
         mov r1, #21505  //TCGETS
+        ldr r2, =t_orig
+        bl ioctl
+        
+        //Should replace second syscall with memcpy
+        mov r1, #21505  //TCGETS
         ldr r2, =t_new_iflag
         bl ioctl
 
-        ldr r1, =t_new_iflag
-        ldr r0, [r1]
-        bl binstr
-        ldr r1, =t_new_oflag
-        ldr r0, [r1]
-        bl binstr
-        ldr r1, =t_new_cflag
-        ldr r0, [r1]
-        bl binstr
-        ldr r1, =t_new_lflag
-        ldr r0, [r1]
-        bl binstr
-        ldr r1, =t_new_c_line
-        ldr r0, [r1]
-        bl binstr
-        ldr r1, =t_new_c_ccarr
-        ldr r0, [r1]
-        bl binstr
+        ldr r0, =t_new_iflag
+        ldr r1, [r0]
+        bic r1, r1, number
 
         b exit
 
 
     ioctl:                  // expects r1 = CMD, r2 = arg*
-        mov r7, #16         //syscall #
+        mov r7, #29         //syscall #
         mov r0, #0          //std_in fd
         //mov r1, #21505    //TCGETS
         //mov r1, #21506    //TCSETS

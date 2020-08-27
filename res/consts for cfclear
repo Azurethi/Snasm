@@ -1,0 +1,30 @@
+Consts for cfmakeraw:
+ TCGETS:        21505
+ TCSETS:        21506
+
+ IGNBRK:        1
+ BRKINT:        2
+ PARMRK:        8
+ ISTRIP:        32
+ INLCR :        64
+ IGNCR :        128
+ ICRNL :        256
+ IXON  :        1024
+
+ OPOST :        1
+
+ ECHO  :        8
+ ECHONL:        64
+ ICANON:        2
+ ISIG  :        1
+ IEXTEN:        32768
+
+ CSIZE :        48
+ PARENB:        256
+
+ CS8   :        48
+
+Struct sizes:
+ sizeof(tcflag_t):  4
+ sizeof(cc_t):      1
+ sizeof(ktermios):  36
